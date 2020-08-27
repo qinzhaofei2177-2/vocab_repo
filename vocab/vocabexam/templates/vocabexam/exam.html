@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Exam in progress ... - Alexander Dictionary!
+{% endblock %}
+
+{% block body %}
+    <h1>Hello! {{ user.username }}'s exam is in progress.</h1>
+    
+    {% if message %}
+    <h3> {{ message }} </h3>
+    {% endif %}
+    
+    <ul>
+        <li>Test for {{ user.username }} is in progress.</li>
+        <li>Username: {{ user.username }}</li>
+        <li>dob: {{ user.profile.dob }}</li>
+        {% if user.profile.gender == True %}
+        <li>gender: Male</li>
+        {% else %}
+        <li>gender: Female</li>
+        {% endif %}
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+    </ul>
+{% endblock %}

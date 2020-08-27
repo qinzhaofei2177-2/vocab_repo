@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Login - Alexander Dictionary!
+{% endblock %}
+
+{% block body %}
+    <h1>login</h1>
+    {% if message %}
+        <div>
+            {{ message }}
+        </div>
+    {% endif %}
+    <form action="{% url 'loggingin' %}" method="post">
+        {% csrf_token %}
+        <input name="username" type="text"/>
+        <input name="password" type="password"/>
+        <input type="submit" value="Login"/>
+    </form>
+    <a href="{% url 'register' %}">Register</a>
+{% endblock %}

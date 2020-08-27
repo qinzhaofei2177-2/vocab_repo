@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+
+{% block link %}
+  <link rel="stylesheet" href="../static/layui/css/layui.css">
+  <link rel="stylesheet" href="../static/css//user.css">
+{% endblock %}
+
+{% block title %}
+    Register - Alexander Dictionary!
+{% endblock %}
+
+{% block body %}
+
+{% if user_form.errors or profile_form.errors %}
+<ul>
+  <li>Please fix the errors below.</li>
+</ul>
+{% endif %}
+
+<h1> Register </h1>
+<form method="POST" action="{% url 'register' %}">
+  {% csrf_token %}
+  {{ user_form.as_p }}
+  {{ profile_form.as_p }}
+  <input type='submit' name='submit' value='register' />
+</form>
+
+{% endblock %}
+
+{% block script %}
+<script src="../static/layui/layui.js"></script>
+<script type="text/javascript" src=""></script>
+<script type="text/javascript"></script>
+<script>
+//Demo
+layui.use('form', function(){
+  var form = layui.form;
+  
+  //监听提交
+  form.on('submit(formDemo)', function(data){
+    layer.msg(JSON.stringify(data.field));
+    return false;
+  });
+});
+</script>
+{% endblock %}

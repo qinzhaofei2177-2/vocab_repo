@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Alexander Dictionary!
+{% endblock %}
+
+{% block body %}
+    {% if user %}
+        <h1>Hello {{ user.username }}! Welcome to Alexander Dictionary! </h1>
+    {% else %}
+        <h1>Hello! Welcome to Alexander Dictionary! </h1>
+    {% endif %}
+    <h4>Let's start your test.</h4>
+    <a href="{% url 'login' %}">
+        <button type="button">Start test!</button>
+    </a>
+{% endblock %}
