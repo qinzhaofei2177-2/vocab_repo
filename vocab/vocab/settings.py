@@ -75,6 +75,7 @@ WSGI_APPLICATION = 'vocab.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# You should create your own DB credentials here
 DATABASES = {
     'default': {
         # 'ENGINE': 'django.db.backends.sqlite3',
